@@ -69,17 +69,23 @@
     <Compile Include="creditsForm.Designer.cs">
       <DependentUpon>creditsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MultiThreadSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MultiThreadSearch.Designer.cs">
+      <DependentUpon>MultiThreadSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="FirstPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FirstPage.Designer.cs">
       <DependentUpon>FirstPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="ScrapingPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ScrapingPage.Designer.cs">
+      <DependentUpon>ScrapingPage.cs</DependentUpon>
     </Compile>
     <Compile Include="MakingDumpFile.cs" />
     <Compile Include="ProcessesList.cs">
@@ -88,20 +94,33 @@
     <Compile Include="ProcessesList.Designer.cs">
       <DependentUpon>ProcessesList.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProcessExtensions.cs" />
+    <Compile Include="ProcessInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcessInfo.Designer.cs">
+      <DependentUpon>ProcessInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scanning.cs" />
     <EmbeddedResource Include="creditsForm.resx">
       <DependentUpon>creditsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MultiThreadSearch.resx">
+      <DependentUpon>MultiThreadSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FirstPage.resx">
       <DependentUpon>FirstPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ScrapingPage.resx">
+      <DependentUpon>ScrapingPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProcessesList.resx">
       <DependentUpon>ProcessesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessInfo.resx">
+      <DependentUpon>ProcessInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

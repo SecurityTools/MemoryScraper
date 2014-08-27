@@ -34,6 +34,7 @@
             this.comboBoxProcesses = new System.Windows.Forms.ComboBox();
             this.scanBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.RefreshBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BackBtn
@@ -42,7 +43,7 @@
             this.BackBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BackBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.BackBtn.Location = new System.Drawing.Point(173, 250);
+            this.BackBtn.Location = new System.Drawing.Point(128, 309);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.Size = new System.Drawing.Size(80, 32);
             this.BackBtn.TabIndex = 0;
@@ -57,7 +58,7 @@
             this.titleLbl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.titleLbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.titleLbl1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.titleLbl1.Location = new System.Drawing.Point(106, 46);
+            this.titleLbl1.Location = new System.Drawing.Point(59, 46);
             this.titleLbl1.Name = "titleLbl1";
             this.titleLbl1.Size = new System.Drawing.Size(224, 37);
             this.titleLbl1.TabIndex = 5;
@@ -68,21 +69,23 @@
             this.comboBoxProcesses.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBoxProcesses.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxProcesses.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.comboBoxProcesses.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.comboBoxProcesses.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.comboBoxProcesses.ForeColor = System.Drawing.Color.Black;
             this.comboBoxProcesses.FormattingEnabled = true;
-            this.comboBoxProcesses.Location = new System.Drawing.Point(64, 120);
+            this.comboBoxProcesses.Location = new System.Drawing.Point(66, 120);
             this.comboBoxProcesses.Name = "comboBoxProcesses";
-            this.comboBoxProcesses.Size = new System.Drawing.Size(319, 23);
+            this.comboBoxProcesses.Size = new System.Drawing.Size(225, 23);
             this.comboBoxProcesses.TabIndex = 9;
             // 
             // scanBtn
             // 
             this.scanBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.scanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.scanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.scanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.scanBtn.ForeColor = System.Drawing.Color.Black;
-            this.scanBtn.Location = new System.Drawing.Point(130, 183);
+            this.scanBtn.Location = new System.Drawing.Point(86, 176);
             this.scanBtn.Name = "scanBtn";
             this.scanBtn.Size = new System.Drawing.Size(172, 30);
             this.scanBtn.TabIndex = 10;
@@ -98,12 +101,28 @@
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 11;
             // 
+            // RefreshBtn
+            // 
+            this.RefreshBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.RefreshBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RefreshBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.RefreshBtn.ForeColor = System.Drawing.Color.Black;
+            this.RefreshBtn.Location = new System.Drawing.Point(86, 236);
+            this.RefreshBtn.Name = "RefreshBtn";
+            this.RefreshBtn.Size = new System.Drawing.Size(172, 30);
+            this.RefreshBtn.TabIndex = 12;
+            this.RefreshBtn.Text = "Refresh process list";
+            this.RefreshBtn.UseVisualStyleBackColor = false;
+            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
+            // 
             // ProcessesList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(434, 342);
+            this.ClientSize = new System.Drawing.Size(351, 388);
+            this.Controls.Add(this.RefreshBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.scanBtn);
             this.Controls.Add(this.comboBoxProcesses);
@@ -116,13 +135,12 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(450, 380);
+            this.MaximumSize = new System.Drawing.Size(367, 426);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(450, 380);
+            this.MinimumSize = new System.Drawing.Size(367, 426);
             this.Name = "ProcessesList";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Memory Scraper";
-            this.Load += new System.EventHandler(this.ProcessesList_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +153,6 @@
         private System.Windows.Forms.ComboBox comboBoxProcesses;
         private System.Windows.Forms.Button scanBtn;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button RefreshBtn;
     }
 }

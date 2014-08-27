@@ -1,6 +1,6 @@
 ﻿namespace MemoryScraper
 {
-    partial class creditsForm
+    partial class CreditsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(creditsForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreditsForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,6 +41,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -145,11 +146,11 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(65, 289);
+            this.label9.Location = new System.Drawing.Point(76, 289);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(209, 20);
+            this.label9.Size = new System.Drawing.Size(178, 20);
             this.label9.TabIndex = 8;
-            this.label9.Text = "The College of Management";
+            this.label9.Text = "College of Management";
             // 
             // label10
             // 
@@ -188,12 +189,25 @@
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(124, 329);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(79, 18);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Israel 2014";
+            // 
             // creditsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(333, 420);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
@@ -209,10 +223,12 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1000, 1000);
+            this.MaximumSize = new System.Drawing.Size(349, 458);
             this.MinimizeBox = false;
-            this.Name = "creditsForm";
+            this.MinimumSize = new System.Drawing.Size(349, 458);
+            this.Name = "CreditsForm";
             this.Text = "Memory Scraper";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.creditsForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,5 +248,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.Label label11;
     }
 }

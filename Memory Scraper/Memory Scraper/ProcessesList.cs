@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-using System.IO;
 
 
 namespace MemoryScraper
@@ -19,49 +13,102 @@ namespace MemoryScraper
         public ProcessesList()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterScreen;
+            RefreshProcessList();
+                
+        }
+        public void RefreshProcessList()
+        {
             comboBoxProcesses.Items.Clear();
-            Process[] MyProcess = Process.GetProcesses();
-            for (int i = 0; i < MyProcess.Length; i++)
+            var myProcess = Process.GetProcesses();
+            for (var i = 0; i < myProcess.Length; i++)
             {
-                ComboboxItem item = new ComboboxItem();
-                item.Text = MyProcess[i].ProcessName;
-                item.Value = MyProcess[i].Id;
+                var item = new ComboboxItem();
+                item.Text = myProcess[i].ProcessName;
+                item.Value = myProcess[i].Id;
                 comboBoxProcesses.Items.Add(item);
 
-            }      
+            }  
         }
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
-           FirstPage obj1 = new FirstPage();
-           obj1.Show();
-           this.Hide();          
+           var firstPage = new FirstPage();
+           firstPage.Show();
+           Hide();          
         }
 
-       
 
-        private void ExitBtn_Click(object sender, EventArgs e)
-        {    
-            this.Close();
+        private bool isThisSpecialProgram(string str)
+        {
+            var list = new List<string>();
+            list.Clear();
+            list.Add("chrome");
+            if (list.Contains(str))
+                return true;
+            else
+                return false;
         }
 
         private void scanBtn_Click(object sender, EventArgs e)
         {
+            
             if ((comboBoxProcesses.SelectedIndex.ToString()).CompareTo("-1") != 0)
             {
-                int PidNumber = ((ComboboxItem)comboBoxProcesses.SelectedItem).Value;
-                Form1 obj1 = new Form1(PidNumber);
-                obj1.Show();
-                this.Hide();
-            }
+                var pidNumber = ((ComboboxItem)comboBoxProcesses.SelectedItem).Value;
+                Process myProcess;
+            
+                try
+                {
+                   myProcess = Process.GetProcessById(pidNumber);
+                }
+                catch
+                {
+                    MessageBox.Show("The selected process no longer exists.\nPlease choose another one.", "Memory Scraper", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshProcessList();
+                    return;
+                }
+
                 
+                if(isThisSpecialProgram(myProcess.ProcessName))
+                {
+                    pidNumber = myProcess.Parent().Id;
+                    var scrapPage = new ScrapingPage(pidNumber, false);
+                    scrapPage.Show();
+                }
+                    
+                else
+                {
+
+                    var procs = Process.GetProcessesByName(myProcess.ProcessName);
+
+                    if (procs.Count() > 1)
+                    {
+
+                        var multi = new MultiThreadSearch(myProcess.ProcessName);
+                        multi.Show();
+                    }
+                    else
+                    {
+                        var scrapPage = new ScrapingPage(pidNumber, false);
+                        scrapPage.Show();
+                    }
+                }
+                Hide();
+            }
+            else
+            {
+                MessageBox.Show("The selected process is not on the list.\nPlease choose another one.", "Memory Scraper", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
-        private void ProcessesList_Load(object sender, EventArgs e)
+        private void RefreshBtn_Click(object sender, EventArgs e)
         {
-
+            RefreshProcessList();
         }
+
+        
 
         
 

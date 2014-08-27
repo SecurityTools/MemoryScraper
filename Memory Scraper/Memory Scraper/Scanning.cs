@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 
@@ -12,44 +7,59 @@ namespace MemoryScraper
     class Scanning
     {
         private volatile bool _shouldStop;
-        private int pid;
-        private string pattern;
-        public volatile List<string> info;
-        private MatchCollection matches;
-        private MakingDumpFile m;
+        private readonly int _pid;
+        private readonly string _pattern;
+        public volatile List<string> Info;
+        private MatchCollection _matches;
+        private readonly MakingDumpFile _m;
         
         public Scanning(int pid2, string pattern2)
         {
-            m = new MakingDumpFile();
-            this.info = new List<string>();
-            this.info.Clear();
-            this._shouldStop = false;
-            this.pid = pid2;
-            this.pattern = pattern2;
+            _m = new MakingDumpFile();
+            Info = new List<string>();
+            Info.Clear();
+            _shouldStop = false;
+            _pid = pid2;
+            _pattern = pattern2;
         }
-        public int getResultsStatus()
+        public int GetResultsStatus()
         {
-            return this.m.resultsStatus;
+            return _m.ResultsStatus;
         }
-        public void startScan()
+        public void StartScan()
         {
-            
-            
+
+            var isCountOkay=false;
+  
             while (!_shouldStop)
             {                    
-                    this.matches = m.PidToInstances(this.pid, this.pattern);
-                    if(m.resultsStatus==1)
+                    _matches = _m.PidToInstances(_pid, _pattern);
+                    try
                     {
-                        foreach (Match match in this.matches)
+                        if (_matches.Count > 0)
+                            isCountOkay = true;
+                        else
+                            isCountOkay = false;
+                    }
+                    catch
+                    {
+                        _m.ResultsStatus = 2;
+                    }
+                    
+
+
+                    if(_m.ResultsStatus==1 && isCountOkay)
+                    {
+                        foreach (Match match in _matches)
                         {
-                            if (this.info.Contains(match.Value) == false)
-                                this.info.Add(match.Value);
+                            if (Info.Contains(match.Value) == false)
+                                Info.Add(match.Value);
                         }
                     }             
             }
 
         }
-        public void stopScanning()
+        public void StopScanning()
         {
             _shouldStop = true;
         }

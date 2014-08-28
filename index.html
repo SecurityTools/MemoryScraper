@@ -3,74 +3,96 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
     <title>Memory Scraper by SecurityTools</title>
   </head>
 
   <body>
-    <div id="container">
+    <header>
       <div class="inner">
+        <h1>Memory Scraper</h1>
+        <h2>Open Source Memory Scraper for Windows</h2>
+        <a href="https://github.com/SecurityTools/MemoryScraper" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
 
-        <header>
-          <h1>Memory Scraper</h1>
-          <h2>Open Source Memory Scraper</h2>
-        </header>
-
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/SecurityTools/MemoryScraper/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/SecurityTools/MemoryScraper/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/SecurityTools/MemoryScraper" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
           <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<a name="about-this-tool" class="anchor" href="#about-this-tool"><span class="octicon octicon-link"></span></a>About this tool</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>The Memory Scraper is a legitimate tool for Memory/RAM scraping vulnerability testing on Windows applications. By running this tool, specific patterns can be found in the memory, e.g. credit cards numbers, URLs or any other regular expression. 
+One of the major advantages of the Memory Scraper is the ability to run continues testing on the scanned process. This means that if a sensitive data stored in the memory, even for a very short time, the Memory Scraper finds it. </p>
+
+<h3>
+<a name="get-the-tool" class="anchor" href="#get-the-tool"><span class="octicon octicon-link"></span></a>Get the tool</h3>
+
+<p>Use the command line to clone the git locally.</p>
 
 <pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+$ git clone https://github.com/SecurityTools/MemoryScraper.git
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h3>
+<a name="supported-versions" class="anchor" href="#supported-versions"><span class="octicon octicon-link"></span></a>Supported versions</h3>
+
+<p>This tool tested on Windows 7, 8 and 8.1. 
+It runs without administrative privileges on Windows 7, but requires to "run as administrator" on Windows 8 and above.</p>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting started</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
+<ol>
+<li><p>Get the code and verify it's legitimate software :-)</p></li>
+<li><p>Once you build the project, the start screen pops up. Click "Run".</p></li>
+<li><p>The Processes List window allows to choose the process to read from a drop-down list. Choose the required process from the drop-down list and press on "Select Process". Note: If you see a process name that appears more than one time on the list and you're not sure which to select - don't worry, it doesn't matter (just right now) which one you will select because the next window will help you. 
+Note: If a process appears more than once in the list, it means that there are several running processes with the same name. Therefore, "Multiple Processes Scan" window should appear. This window lets you to decide which PID (process ID) you want the scan, among all the processes that have the process name you selected earlier. Choose a process and click "Select process".</p></li>
+<li><p>In the new window you can start searching the data by choosing a regular expression and pressing on "Start".</p></li>
+<li><p>Once you click "Start scan", the scan starts and when Memory Scraper finishes scanning all the data of the process - it starts over again until stopped explicitly.This way Memory Scraper is scanning and showing results in real time and update it results according to the changes being made in the selected process's data. If more information about the selected process needed, click "Process Info". This opens a window called "Process Information" which shows more details. Click "Process Info" again in order to close that window.</p></li>
+</ol><h3>
 <a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>Code developers: Idan Geula(<a href="https://github.com/idanGeula" class="user-mention">@idanGeula</a>), Roy Shemer (<a href="https://github.com/royshemer90" class="user-mention">@royshemer90</a>), Justin Hess (<a href="https://github.com/juhess88" class="user-mention">@juhess88</a>) and Elad Noty (<a href="https://github.com/eladnoty" class="user-mention">@eladnoty</a>).
+Supervision: Nir Valtman (<a href="https://github.com/valtmanir" class="user-mention">@valtmanir</a>).</p>
         </section>
 
-        <footer>
-          Memory Scraper is maintained by <a href="https://github.com/SecurityTools">SecurityTools</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+        <aside id="sidebar">
+          <a href="https://github.com/SecurityTools/MemoryScraper/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/SecurityTools/MemoryScraper/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
 
-        
+          <p class="repo-owner"><a href="https://github.com/SecurityTools/MemoryScraper"></a> is maintained by <a href="https://github.com/SecurityTools">SecurityTools</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
       </div>
     </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-37570406-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
